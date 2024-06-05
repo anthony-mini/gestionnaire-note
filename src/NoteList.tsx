@@ -5,9 +5,9 @@ const NoteList = () => {
   const { notes, deleteNote } = useNotes();
 
   const getBackgroundColor = (score: number) => {
-    if (score < 8) return 'bg-red-500';
-    if (score < 10) return 'bg-orange-500';
-    if (score < 13) return 'bg-yellow-500';
+    if (score <= 8) return 'bg-red-500';
+    if (score <= 10) return 'bg-orange-500';
+    if (score <= 13) return 'bg-yellow-500';
     return 'bg-green-500';
   };
 
