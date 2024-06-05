@@ -33,6 +33,8 @@ const AddNote = () => {
           onChange={(e) => setTitle(e.target.value)}
           className="w-full p-2 border rounded"
           required
+          autoComplete="off"
+          placeholder="Ex: Mathématiques"
         />
       </div>
       <div className="mb-4">
@@ -48,6 +50,8 @@ const AddNote = () => {
           }}
           className="w-full p-2 border rounded"
           required
+          placeholder="Note de 0 à 20"
+          autoComplete="off"
         />
       </div>
       <div className="mb-4">
@@ -57,6 +61,8 @@ const AddNote = () => {
           onChange={(e) => setComment(e.target.value)}
           className="w-full p-2 border rounded"
           required
+          placeholder="Ajouté un commentaire"
+          autoComplete="off"
         />
       </div>
       <button
