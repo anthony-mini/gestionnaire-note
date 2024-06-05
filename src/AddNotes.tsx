@@ -14,8 +14,9 @@ const AddNote = () => {
       title,
       score: parseInt(score),
       comment,
-      date: new Date().toISOString(),
+      date: new Date().toLocaleDateString('fr-FR'),
     };
+
     addNote(newNote);
     setTitle('');
     setScore('');
@@ -32,6 +33,8 @@ const AddNote = () => {
           onChange={(e) => setTitle(e.target.value)}
           className="w-full p-2 border rounded"
           required
+          autoComplete="off"
+          placeholder="Ex: Mathématiques"
         />
       </div>
       <div className="mb-4">
@@ -39,9 +42,16 @@ const AddNote = () => {
         <input
           type="number"
           value={score}
-          onChange={(e) => setScore(e.target.value)}
+          onChange={(e) => {
+            const newScore = Number(e.target.value);
+            if (newScore >= 0 && newScore <= 20) {
+              setScore(e.target.value);
+            }
+          }}
           className="w-full p-2 border rounded"
           required
+          placeholder="Note de 0 à 20"
+          autoComplete="off"
         />
       </div>
       <div className="mb-4">
@@ -51,6 +61,8 @@ const AddNote = () => {
           onChange={(e) => setComment(e.target.value)}
           className="w-full p-2 border rounded"
           required
+          placeholder="Ajouté un commentaire"
+          autoComplete="off"
         />
       </div>
       <button
